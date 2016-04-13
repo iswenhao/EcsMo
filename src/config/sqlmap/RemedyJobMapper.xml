@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 为这个mapper指定一个唯一的namespace，namespace的值习惯上设置成包名+sql映射文件名，这样就能够保证namespace的值是唯一的 
+	例如namespace="me.gacl.mapping.userMapper"就是me.gacl.mapping(包名)+userMapper(userMapper.xml文件去除后缀) -->
+<mapper namespace="com.lingtong.Mappers.RemedyJobMapper">
+
+	<!-- (查询所有可用的配置操作信息) -->
+	<select id="getAllJobs" resultType="com.lingtong.po.RemedyJob">
+		select * from t_remedyJob where t_status =0
+	</select>
+	<!-- (根据处理组，JOB名取配置操作信息) -->
+	<select id="getJobsByGroupJob" parameterType="com.lingtong.po.RemedyJob"
+		resultType="RemedyJob">
+		select * from t_remedyJob where t_status =0 and T_JOBNAM
+		=${RemedyJob.jobname}and t_group=${RemedyJob.group}
+	</select>
+	<!-- (根据JOB名取配置操作信息) -->
+	<select id="getJobsByJob" parameterType="com.lingtong.po.RemedyJob" resultType="com.lingtong.po.RemedyJob">
+		select * from t_remedyJob where t_status =0 and T_JOBNAM
+		=${RemedyJob.jobname}
+	</select>
+
+
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<package name="com.lingtong.po" />
+	</typeAliases>
+
+	<!-- <mappers>
+		通过 resource 方法，一次加载一个，加载单个文件
+		<mapper resource="config/sqlmap/RemedyJobMapper.xml" />
+	</mappers> -->
+</configuration>
